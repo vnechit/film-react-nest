@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { FILMSTOKEN, MongoDBService } from '../repository/mongo.repository';
+import { FilmsRepository } from '../repository/films.repository';
 
 @Injectable()
 export class FilmsService {
   constructor(
-    @Inject(FILMSTOKEN) private readonly filmsRepository: MongoDBService,
+    @Inject(FilmsRepository.FILMSTOKEN)
+    private readonly filmsRepository: FilmsRepository,
   ) {}
 
   async findAll() {

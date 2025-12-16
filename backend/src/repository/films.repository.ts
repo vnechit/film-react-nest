@@ -9,4 +9,5 @@ export abstract class FilmsRepository {
     scheduleId: string,
     seat: string,
   ): Promise<boolean>;
+  static FILMSTOKEN = Symbol('FILMSTOKEN');
 }
