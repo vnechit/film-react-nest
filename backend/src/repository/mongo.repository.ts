@@ -4,8 +4,6 @@ import { Model } from 'mongoose';
 import { FilmsRepository } from './films.repository';
 import { Film, FilmDocument, IFilm, ISchedule } from './types';
 
-export const FILMSTOKEN = Symbol('FILMSTOKEN');
-
 @Injectable()
 export class MongoDBService extends FilmsRepository {
   constructor(

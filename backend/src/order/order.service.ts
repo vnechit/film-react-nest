@@ -4,12 +4,14 @@ import {
   NotFoundException,
   Inject,
 } from '@nestjs/common';
-import { FILMSTOKEN, MongoDBService } from '../repository/mongo.repository';
 import { OrderItemResponseDto, OrderRequestDto } from './dto/order.dto';
+import { FilmsRepository } from '../repository/films.repository';
 
 @Injectable()
 export class OrderService {
-  constructor(@Inject(FILMSTOKEN) private readonly films: MongoDBService) {}
+  constructor(
+    @Inject(FilmsRepository.FILMSTOKEN) private readonly films: FilmsRepository,
+  ) {}
 
   async create(dto: OrderRequestDto): Promise<Array<OrderItemResponseDto>> {
     const response: OrderItemResponseDto[] = [];
